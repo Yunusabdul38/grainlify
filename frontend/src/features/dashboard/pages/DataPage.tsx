@@ -212,13 +212,21 @@ export function DataPage() {
                   }`} />
               </button>
               {showProjectIntervalDropdown && (
-                <div className="absolute right-0 mt-2 w-[180px] backdrop-blur-[30px] bg-white/[0.55] border-2 border-white/30 rounded-[12px] shadow-[0_8px_32px_rgba(0,0,0,0.15)] overflow-hidden z-50">
+                <div className={`absolute right-0 mt-2 w-[180px] backdrop-blur-[30px] rounded-[12px] shadow-[0_8px_32px_rgba(0,0,0,0.15)] overflow-hidden z-50 ${
+                  theme === 'dark'
+                    ? 'bg-[#2d2820]/[0.95] border-2 border-[#c9983a]/30'
+                    : 'bg-white/[0.55] border-2 border-white/30'
+                }`}>
                   <button
                     onClick={() => {
                       setProjectInterval('Daily interval');
                       setShowProjectIntervalDropdown(false);
                     }}
-                    className="w-full px-4 py-3 text-left text-[13px] font-medium text-[#2d2820] hover:bg-white/[0.3] transition-all"
+                    className={`w-full px-4 py-3 text-left text-[13px] font-medium transition-all ${
+                      theme === 'dark'
+                        ? 'text-[#f5f5f5] hover:bg-white/[0.05]'
+                        : 'text-[#2d2820] hover:bg-white/[0.3]'
+                    }`}
                   >
                     Daily interval
                   </button>
@@ -227,7 +235,11 @@ export function DataPage() {
                       setProjectInterval('Weekly interval');
                       setShowProjectIntervalDropdown(false);
                     }}
-                    className="w-full px-4 py-3 text-left text-[13px] font-medium text-[#2d2820] hover:bg-white/[0.3] transition-all"
+                    className={`w-full px-4 py-3 text-left text-[13px] font-medium transition-all ${
+                      theme === 'dark'
+                        ? 'text-[#f5f5f5] hover:bg-white/[0.05]'
+                        : 'text-[#2d2820] hover:bg-white/[0.3]'
+                    }`}
                   >
                     Weekly interval
                   </button>
@@ -236,8 +248,13 @@ export function DataPage() {
                       setProjectInterval('Monthly interval');
                       setShowProjectIntervalDropdown(false);
                     }}
-                    className={`w-full px-4 py-3 text-left text-[13px] font-medium transition-all ${projectInterval === 'Monthly interval'
-                        ? 'bg-white/[0.35] text-[#2d2820] font-bold'
+                    className={`w-full px-4 py-3 text-left text-[13px] font-medium transition-all ${
+                      projectInterval === 'Monthly interval'
+                        ? theme === 'dark'
+                          ? 'bg-[#c9983a]/[0.15] text-[#f5c563] font-bold'
+                          : 'bg-white/[0.35] text-[#2d2820] font-bold'
+                        : theme === 'dark'
+                        ? 'text-[#f5f5f5] hover:bg-white/[0.05]'
                         : 'text-[#2d2820] hover:bg-white/[0.3]'
                       }`}
                   >
@@ -248,7 +265,11 @@ export function DataPage() {
                       setProjectInterval('Quarterly interval');
                       setShowProjectIntervalDropdown(false);
                     }}
-                    className="w-full px-4 py-3 text-left text-[13px] font-medium text-[#2d2820] hover:bg-white/[0.3] transition-all"
+                    className={`w-full px-4 py-3 text-left text-[13px] font-medium transition-all ${
+                      theme === 'dark'
+                        ? 'text-[#f5f5f5] hover:bg-white/[0.05]'
+                        : 'text-[#2d2820] hover:bg-white/[0.3]'
+                    }`}
                   >
                     Quarterly interval
                   </button>
@@ -257,7 +278,11 @@ export function DataPage() {
                       setProjectInterval('Yearly interval');
                       setShowProjectIntervalDropdown(false);
                     }}
-                    className="w-full px-4 py-3 text-left text-[13px] font-medium text-[#2d2820] hover:bg-white/[0.3] transition-all"
+                    className={`w-full px-4 py-3 text-left text-[13px] font-medium transition-all ${
+                      theme === 'dark'
+                        ? 'text-[#f5f5f5] hover:bg-white/[0.05]'
+                        : 'text-[#2d2820] hover:bg-white/[0.3]'
+                    }`}
                   >
                     Yearly interval
                   </button>
@@ -531,13 +556,21 @@ export function DataPage() {
                   }`} />
               </button>
               {showContributorIntervalDropdown && (
-                <div className="absolute right-0 mt-2 w-[180px] backdrop-blur-[30px] bg-white/[0.55] border-2 border-white/30 rounded-[12px] shadow-[0_8px_32px_rgba(0,0,0,0.15)] overflow-hidden z-50">
+                <div className={`absolute right-0 mt-2 w-[180px] backdrop-blur-[30px] rounded-[12px] shadow-[0_8px_32px_rgba(0,0,0,0.15)] overflow-hidden z-50 ${
+                  theme === 'dark'
+                    ? 'bg-[#2d2820]/[0.95] border-2 border-[#c9983a]/30'
+                    : 'bg-white/[0.55] border-2 border-white/30'
+                }`}>
                   <button
                     onClick={() => {
                       setContributorInterval('Daily interval');
                       setShowContributorIntervalDropdown(false);
                     }}
-                    className="w-full px-4 py-3 text-left text-[13px] font-medium text-[#2d2820] hover:bg-white/[0.3] transition-all"
+                    className={`w-full px-4 py-3 text-left text-[13px] font-medium transition-all ${
+                      theme === 'dark'
+                        ? 'text-[#f5f5f5] hover:bg-white/[0.05]'
+                        : 'text-[#2d2820] hover:bg-white/[0.3]'
+                    }`}
                   >
                     Daily interval
                   </button>
@@ -546,7 +579,11 @@ export function DataPage() {
                       setContributorInterval('Weekly interval');
                       setShowContributorIntervalDropdown(false);
                     }}
-                    className="w-full px-4 py-3 text-left text-[13px] font-medium text-[#2d2820] hover:bg-white/[0.3] transition-all"
+                    className={`w-full px-4 py-3 text-left text-[13px] font-medium transition-all ${
+                      theme === 'dark'
+                        ? 'text-[#f5f5f5] hover:bg-white/[0.05]'
+                        : 'text-[#2d2820] hover:bg-white/[0.3]'
+                    }`}
                   >
                     Weekly interval
                   </button>
@@ -555,8 +592,13 @@ export function DataPage() {
                       setContributorInterval('Monthly interval');
                       setShowContributorIntervalDropdown(false);
                     }}
-                    className={`w-full px-4 py-3 text-left text-[13px] font-medium transition-all ${contributorInterval === 'Monthly interval'
-                        ? 'bg-white/[0.35] text-[#2d2820] font-bold'
+                    className={`w-full px-4 py-3 text-left text-[13px] font-medium transition-all ${
+                      contributorInterval === 'Monthly interval'
+                        ? theme === 'dark'
+                          ? 'bg-[#c9983a]/[0.15] text-[#f5c563] font-bold'
+                          : 'bg-white/[0.35] text-[#2d2820] font-bold'
+                        : theme === 'dark'
+                        ? 'text-[#f5f5f5] hover:bg-white/[0.05]'
                         : 'text-[#2d2820] hover:bg-white/[0.3]'
                       }`}
                   >
@@ -567,7 +609,11 @@ export function DataPage() {
                       setContributorInterval('Quarterly interval');
                       setShowContributorIntervalDropdown(false);
                     }}
-                    className="w-full px-4 py-3 text-left text-[13px] font-medium text-[#2d2820] hover:bg-white/[0.3] transition-all"
+                    className={`w-full px-4 py-3 text-left text-[13px] font-medium transition-all ${
+                      theme === 'dark'
+                        ? 'text-[#f5f5f5] hover:bg-white/[0.05]'
+                        : 'text-[#2d2820] hover:bg-white/[0.3]'
+                    }`}
                   >
                     Quarterly interval
                   </button>
@@ -576,7 +622,11 @@ export function DataPage() {
                       setContributorInterval('Yearly interval');
                       setShowContributorIntervalDropdown(false);
                     }}
-                    className="w-full px-4 py-3 text-left text-[13px] font-medium text-[#2d2820] hover:bg-white/[0.3] transition-all"
+                    className={`w-full px-4 py-3 text-left text-[13px] font-medium transition-all ${
+                      theme === 'dark'
+                        ? 'text-[#f5f5f5] hover:bg-white/[0.05]'
+                        : 'text-[#2d2820] hover:bg-white/[0.3]'
+                    }`}
                   >
                     Yearly interval
                   </button>
