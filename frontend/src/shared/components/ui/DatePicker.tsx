@@ -61,12 +61,12 @@ export function DatePicker({
       : 'bg-white/[0.15] border-white/25 text-[#2d2820] placeholder-[#7a6b5a] focus:bg-white/[0.2] focus:border-[#c9983a]/30'
   } ${className}`;
 
-  // Popover content styling for theme
+  // Popover content styling for theme - using theme colors
   const popoverContentClasses = theme === 'dark'
-    ? 'bg-[#1a1a1a] border-white/15 text-[#f5f5f5]'
-    : 'bg-white/95 border-white/25 text-[#2d2820]';
+    ? 'bg-[#1a1512] border-[#a67c2e]/30 backdrop-blur-[30px] text-[#f5f5f5]'
+    : 'bg-white/[0.4] border-[#c9983a]/20 backdrop-blur-[30px] text-[#2d2820]';
 
-  // Calendar styling for theme
+  // Calendar styling for theme - using theme colors consistently
   const calendarClassNames = {
     months: "flex flex-col sm:flex-row gap-2",
     month: "flex flex-col gap-4",
@@ -76,8 +76,8 @@ export function DatePicker({
     nav_button: cn(
       "h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100 rounded-md border transition-colors",
       theme === 'dark'
-        ? 'border-white/15 text-[#f5f5f5] hover:bg-white/10'
-        : 'border-white/25 text-[#2d2820] hover:bg-white/20'
+        ? 'border-[#a67c2e]/30 text-[#f5f5f5] hover:bg-[#a67c2e]/20 hover:border-[#a67c2e]/50'
+        : 'border-[#c9983a]/20 text-[#2d2820] hover:bg-[#c9983a]/10 hover:border-[#c9983a]/30'
     ),
     nav_button_previous: "absolute left-1",
     nav_button_next: "absolute right-1",
@@ -95,8 +95,8 @@ export function DatePicker({
     day: cn(
       "h-8 w-8 p-0 font-normal rounded-md transition-colors",
       theme === 'dark'
-        ? 'text-[#f5f5f5] hover:bg-white/10'
-        : 'text-[#2d2820] hover:bg-white/20',
+        ? 'text-[#f5f5f5] hover:bg-[#a67c2e]/20 hover:text-[#f5f5f5]'
+        : 'text-[#2d2820] hover:bg-[#c9983a]/15 hover:text-[#2d2820]',
       "aria-selected:opacity-100"
     ),
     day_selected: cn(
@@ -104,7 +104,9 @@ export function DatePicker({
       "hover:text-white focus:text-white"
     ),
     day_today: cn(
-      theme === 'dark' ? 'bg-white/10 text-[#f5f5f5]' : 'bg-white/20 text-[#2d2820]'
+      theme === 'dark' 
+        ? 'bg-[#a67c2e]/20 text-[#f5f5f5] border border-[#a67c2e]/40' 
+        : 'bg-[#c9983a]/15 text-[#2d2820] border border-[#c9983a]/30'
     ),
     day_outside: cn(
       theme === 'dark' ? 'text-[#7a7a7a]' : 'text-[#b8a898]'
