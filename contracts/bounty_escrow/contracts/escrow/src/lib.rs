@@ -191,3 +191,6 @@ impl BountyEscrowContract {
         Ok(client.balance(&env.current_contract_address()))
     }
 }
+
+#[cfg(test)]
+mod test;
