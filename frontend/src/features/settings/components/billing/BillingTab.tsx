@@ -23,6 +23,8 @@ export function BillingTab() {
   const [isVerifying, setIsVerifying] = useState(false);
   const [kycStatus, setKycStatus] = useState<string | null>(null);
   const [isCheckingKYC, setIsCheckingKYC] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  
 
   const handleCreateProfile = () => {
     if (!profileName.trim()) return;
@@ -73,6 +75,7 @@ export function BillingTab() {
       }
     } catch (error) {
       console.error('Failed to check KYC status:', error);
+      setErrorMessage("VerificationFailed: Connection to the identity server failed. Please try again.");
     } finally {
       setIsCheckingKYC(false);
     }
@@ -209,6 +212,13 @@ export function BillingTab() {
     // Profile Detail View
     return (
       <div className="space-y-6">
+        {errorMessage && (
+                <div className="text-red-500 bg-red-100 p-2 rounded mb-4 border border-red-200">
+                        {errorMessage}
+                              </div>
+                                  )}
+                                  
+        )}
         {/* Back Button */}
         <button
           onClick={() => setSelectedProfile(null)}
