@@ -1,5 +1,5 @@
 #![cfg(test)]
-use soroban_sdk::{
+use soroban_sdk::{ vec;
     testutils::{Address as _},
     token, Address, Env
 };
