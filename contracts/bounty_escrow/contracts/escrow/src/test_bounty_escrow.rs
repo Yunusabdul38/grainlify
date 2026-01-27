@@ -1,7 +1,7 @@
 #![cfg(test)]
 
 use soroban_sdk::{
-    testutils::{Address as _, Events},
+    testutils::{Address as _, Events, Ledger},
     token, vec, Address, Env,
 };
 
@@ -259,7 +259,7 @@ fn test_batch_release_funds() {
 // ============================================================================
 
 #[test]
-#[should_panic(expected = "Error(Contract, #10)")]
+#[should_panic(expected = "Error(Contract, #11)")]
 fn test_batch_lock_duplicate_bounty_id() {
     let (env, client, _contract_id) = create_test_env();
     env.mock_all_auths();
@@ -463,10 +463,13 @@ fn test_complete_bounty_workflow_lock_refund() {
     token_admin_client.mint(&depositor, &amount);
 
     let bounty_id = 1u64;
-    // Set deadline to 0 (in the past) so refund is immediately available
-    // In real scenario, we'd wait for deadline, but for testing we use past deadline
-    let deadline = 0u64;
+    // Use a future deadline, then advance the ledger timestamp past it
+    let current_time = env.ledger().timestamp();
+    let deadline = current_time + 1_000;
     client.lock_funds(&depositor, &bounty_id, &amount, &deadline);
+
+    // Advance time past deadline so refund is eligible
+    env.ledger().set_timestamp(deadline + 1);
 
     // Refund funds (deadline has already passed)
     client.refund(
