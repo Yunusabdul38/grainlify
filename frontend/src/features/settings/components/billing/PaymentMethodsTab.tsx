@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Plus, Trash2, Wallet, Copy, CheckCircle2, Star, X, AlertCircle } from 'lucide-react';
+import { Plus, Trash2, Wallet, Copy, CheckCircle2, Star, X, AlertCircle, Edit2 } from 'lucide-react';
 import { useTheme } from '../../../../shared/contexts/ThemeContext';
 import { PaymentMethod, EcosystemType, CryptoType } from '../../types';
 
@@ -56,25 +56,6 @@ export function PaymentMethodsTab({
     }
     return '';
   };
-
-  const handleAddPaymentMethod = () => {
-    if (!walletAddress.trim()) return;
-
-    // Check for duplicate token type
-    const duplicateError = checkDuplicateToken(selectedCrypto);
-    if (duplicateError) {
-      setValidationError(duplicateError);
-      return;
-    }
-
-    const newMethod: PaymentMethod = {
-      id: Date.now(),
-      ecosystem: selectedEcosystem,
-      cryptoType: selectedCrypto,
-      walletAddress: walletAddress,
-      isDefault: paymentMethods.length === 0, // First one is default
-      createdAt: new Date().toISOString(),
-    };
 
   const handleCloseModal = () => {
     setShowAddModal(false);
@@ -342,7 +323,7 @@ export function PaymentMethodsTab({
                         key={crypto}
                         onClick={() => {
                           if (!isDisabled) {
-                            setSelectedCrypto(crypto);
+                            handleCryptoChange(crypto);
                           }
                         }}
                         disabled={isDisabled}
@@ -430,7 +411,7 @@ export function PaymentMethodsTab({
                 Cancel
               </button>
               <button
-                onClick={handleAddPaymentMethod}
+                onClick={handleSavePaymentMethod}
                 disabled={!walletAddress.trim() || !!validationError}
                 className="flex-1 px-6 py-3 rounded-[12px] bg-gradient-to-br from-[#c9983a] to-[#a67c2e] text-white font-semibold text-[14px] shadow-[0_4px_16px_rgba(162,121,44,0.3)] hover:shadow-[0_6px_20px_rgba(162,121,44,0.4)] transition-all border border-white/10 disabled:opacity-50 disabled:cursor-not-allowed"
               >
