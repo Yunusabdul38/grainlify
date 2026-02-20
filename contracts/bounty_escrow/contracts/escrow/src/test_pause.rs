@@ -63,7 +63,7 @@ fn test_granular_pause_lock() {
     // Try to lock while paused — should return FundsPaused error
     let bounty_id_2: u64 = 2;
     let res = escrow_client.try_lock_funds(&depositor, &bounty_id_2, &100, &deadline);
-    assert_eq!(res, Err(Ok(Error::FundsPaused)));
+    assert_eq!(res, Err(Error::FundsPaused));
 
     // Unpause lock
     escrow_client.set_paused(&Some(false), &None, &None).unwrap();
@@ -103,7 +103,7 @@ fn test_granular_pause_release() {
 
     // Try to release while paused — should return FundsPaused
     let res = escrow_client.try_release_funds(&bounty_id, &contributor);
-    assert_eq!(res, Err(Ok(Error::FundsPaused)));
+    assert_eq!(res, Err(Error::FundsPaused));
 
     // Unpause release
     escrow_client.set_paused(&None, &Some(false), &None).unwrap();
@@ -151,7 +151,7 @@ fn test_granular_pause_refund() {
         &None::<Address>,
         &RefundMode::Full,
     );
-    assert_eq!(res, Err(Ok(Error::FundsPaused)));
+    assert_eq!(res, Err(Error::FundsPaused));
 
     // Unpause refund
     escrow_client.set_paused(&None, &None, &Some(false)).unwrap();
