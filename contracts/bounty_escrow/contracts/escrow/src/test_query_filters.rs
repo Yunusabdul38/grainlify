@@ -6,7 +6,7 @@ use soroban_sdk::{
     token, Address, Env,
 };
 
-// ── local helpers ────────────────────────────────────────────────────────────
+//  local helpers 
 
 fn create_token(
     env: &Env,
@@ -57,7 +57,7 @@ impl Setup {
     }
 }
 
-// ── status filter tests ───────────────────────────────────────────────────────
+//  status filter tests
 
 #[test]
 fn test_query_by_status_locked_returns_only_locked() {
@@ -177,8 +177,7 @@ fn test_query_by_status_pagination_offset_and_limit() {
     );
 }
 
-// ── amount filter tests ───────────────────────────────────────────────────────
-
+// amount filter tests
 #[test]
 fn test_query_by_amount_range_returns_matching_escrows() {
     let s = Setup::new();
@@ -222,7 +221,7 @@ fn test_query_by_amount_no_results_outside_range() {
     assert_eq!(results.len(), 0);
 }
 
-// ── deadline filter tests ─────────────────────────────────────────────────────
+// deadline filter tests 
 
 #[test]
 fn test_query_by_deadline_range_filters_correctly() {
@@ -259,7 +258,7 @@ fn test_query_by_deadline_exact_boundary_included() {
     assert_eq!(results.len(), 2);
 }
 
-// ── depositor filter tests ────────────────────────────────────────────────────
+// depositor filter tests
 
 #[test]
 fn test_query_by_depositor_returns_only_that_depositors_escrows() {
