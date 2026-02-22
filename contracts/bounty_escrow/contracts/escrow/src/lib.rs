@@ -2056,3 +2056,5 @@ mod test_expiration_and_dispute;
 mod test_granular_pause;
 #[cfg(test)]
 mod test_pause;
+#[cfg(test)]
+mod test_query_filters;

@@ -1433,7 +1433,7 @@
                         "symbol": "bounty_id"
                       },
                       "val": {
-                        "u64": 1
+                        "u64": 999
                       }
                     },
                     {
@@ -1470,7 +1470,7 @@
             ],
             "data": {
               "error": {
-                "contract": 12
+                "contract": 4
               }
             }
           }
@@ -1491,7 +1491,7 @@
               },
               {
                 "error": {
-                  "contract": 12
+                  "contract": 4
                 }
               }
             ],
@@ -1516,7 +1516,7 @@
               },
               {
                 "error": {
-                  "contract": 12
+                  "contract": 4
                 }
               }
             ],
@@ -1559,7 +1559,7 @@
                                 "symbol": "bounty_id"
                               },
                               "val": {
-                                "u64": 1
+                                "u64": 999
                               }
                             },
                             {
@@ -1596,7 +1596,7 @@
               },
               {
                 "error": {
-                  "contract": 12
+                  "contract": 4
                 }
               }
             ],
